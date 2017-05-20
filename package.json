@@ -1,5 +1,5 @@
 {
-  "name": "poloniex-api",
+  "name": "anmatika/poloniex-api",
   "version": "1.0.1",
   "description": "poloniex api",
   "main": "index.js",
