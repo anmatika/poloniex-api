@@ -1,9 +1,10 @@
 {
   "name": "poloniex-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "poloniex api",
   "main": "index.js",
   "dependencies": {
+    "autobahn": "^17.5.1",
     "nonce": "^1.0.4",
     "url": "^0.11.0"
   },
@@ -11,6 +12,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "anmatika",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anmatika/poloniex-api.git"
+  },
+  "keywords": [
+    "poloniex"
+  ],
+  "bugs": {
+    "url": "https://github.com/anmatika/poloniex-api/issues"
+  },
+  "homepage": "https://github.com/anmatika/poloniex-api#readme"
 }
