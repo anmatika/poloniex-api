@@ -1,4 +1,4 @@
-const request = require('request');
+const request = require('superagent');
 const crypto  = require('crypto');
 const nonce   = require('nonce')();
 const urlLib = require('url');
