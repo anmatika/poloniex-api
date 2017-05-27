@@ -1,6 +1,15 @@
 # Poloniex API
 
+
 ## 1. Trading API
+
+### methods currently supported
+* returnBalances
+* sell
+* returnTradeHistory
+* cancelOrder
+* returnOpenOrders
+* returnTicker
 
 ### init
 ````
