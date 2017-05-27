@@ -1,4 +1,4 @@
-const TradingApi = require('./index').tradingApi;
+const TradingApi = require('../index').tradingApi;
 
 const APIKEY = '<Yours here>';
 const SECRET = '<Yours here>';
