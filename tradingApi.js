@@ -1,4 +1,13 @@
-const request = require('superagent');
+const isBrowser = typeof window !== 'undefined'
+    && ({}).toString.call(window) === '[object Window]';
+
+let request; 
+if(isBrowser) {
+  request = require('superagent');
+} else {
+  request = require('request');
+}
+
 const crypto  = require('crypto');
 const nonce   = require('nonce')();
 const urlLib = require('url');

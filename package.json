@@ -1,12 +1,13 @@
 {
   "name": "poloniex-api",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "poloniex api",
   "main": "index.js",
   "dependencies": {
     "autobahn": "^17.5.1",
     "nonce": "^1.0.4",
     "superagent": "^3.5.2",
+    "request": "^2.81.0",
     "url": "^0.11.0"
   },
   "devDependencies": {
