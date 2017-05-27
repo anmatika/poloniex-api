@@ -4,8 +4,9 @@
 ## 1. Trading API
 
 ### methods currently supported
-* returnBalances
+* buy
 * sell
+* returnBalances
 * returnTradeHistory
 * cancelOrder
 * returnOpenOrders
