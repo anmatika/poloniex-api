@@ -12,7 +12,7 @@ const crypto  = require('crypto');
 const nonce   = require('nonce')();
 const urlLib = require('url');
 
-const create = (apiKey, secret) => {
+const create = (apiKey, secret, debug = false) => {
   const PUBLIC_API_URL = 'https://poloniex.com/public';
   const PRIVATE_API_URL = 'https://poloniex.com/tradingApi';
 
@@ -66,7 +66,7 @@ const create = (apiKey, secret) => {
     const query = createQuery(command, opts);
 
     const queryString = urlLib.format({ query }).substring(1);
-    console.log('querystring', queryString);
+    debug && console.log('querystring', queryString);
     return queryString;
   }
 
@@ -89,7 +89,7 @@ const create = (apiKey, secret) => {
       options.headers = createHeader(queryString);
     }
 
-    console.log('requesting with options: ', options)
+    debug && console.log('requesting with options: ', options)
     return options;
   };
 
@@ -103,7 +103,7 @@ const create = (apiKey, secret) => {
           reject(err);
           return;
         }
-        console.log('makeRequest resolve', res)
+        debug && console.log('makeRequest resolve', res)
         resolve(res);
       })
     });

@@ -18,6 +18,11 @@
 
 const TradingApi = require('poloniex-api').tradingApi;
 const tradingApi = TradingApi.create(YOUR_POLONIEX_API_KEY, YOUR_POLONIEX_SECRET_KEY);
+
+````
+#### init with console logging
+````
+const tradingApi = TradingApi.create(YOUR_POLONIEX_API_KEY, YOUR_POLONIEX_SECRET_KEY, true);
 ````
 
 ### returnBalances
