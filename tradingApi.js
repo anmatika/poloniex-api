@@ -1,7 +1,7 @@
 const isBrowser = typeof window !== 'undefined'
     && ({}).toString.call(window) === '[object Window]';
 
-let request; 
+let request;
 if(isBrowser) {
   request = require('superagent');
 } else {
@@ -124,6 +124,7 @@ const create = (apiKey, secret) => {
 
   return {
     returnBalances: () => makeRequest('returnBalances', {}),
+    returnCompleteBalances: () => makeRequest('returnCompleteBalances', {}),
     buy: ({ currencyPair, amount, rate }) => makeRequest('buy', { currencyPair, amount, rate }),
     sell: ({ currencyPair, amount, rate }) => makeRequest('sell', { currencyPair, amount, rate }),
     returnTradeHistory: ({ currencyPair, start, end }) => makeRequest('returnTradeHistory', { currencyPair, start, end }),
