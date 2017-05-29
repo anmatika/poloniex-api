@@ -7,6 +7,7 @@
 * buy
 * sell
 * returnBalances
+* returnCompleteBalances
 * returnTradeHistory
 * cancelOrder
 * returnOpenOrders
