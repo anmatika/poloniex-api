@@ -1,8 +1,8 @@
 # Poloniex API
 
-node api for consuming poloniex api.
+a node module for consuming poloniex api https://poloniex.com/support/api/.
 
-node client can be found here:
+example node client for consuming this can be found here:
 https://github.com/anmatika/poloniex-api-cli
 
 ## 1. Trading API
