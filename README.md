@@ -24,6 +24,15 @@ const tradingApi = TradingApi.create(YOUR_POLONIEX_API_KEY, YOUR_POLONIEX_SECRET
 ````
 const tradingApi = TradingApi.create(YOUR_POLONIEX_API_KEY, YOUR_POLONIEX_SECRET_KEY, true);
 ````
+### buy
+````
+tradingApi.buy({
+    currencyPair: 'BTC_ETH',
+    amount: 1,
+    rate: 0.058
+  }).then(msg => console.log(msg.body))
+    .catch(err => console.log(err))
+````
 
 ### returnBalances
 ````
