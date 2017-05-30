@@ -43,7 +43,7 @@ api.returnBalances.then(res => console.log(res));
 ### returnTradeHistory
 ````
 tradingApi.returnTradeHistory({
-  'BTC_ETH',
+  currencyPair: 'BTC_ETH',
   start: new Date('1970-01-01 00:00:00').getTime() / 1000
 }).then(msg => resolve(JSON.parse(msg.body)))
   .catch(err => reject(err))
