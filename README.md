@@ -2,7 +2,7 @@
 
 node api for consuming poloniex api.
 
-node cli can be found here 
+node client can be found here:
 https://github.com/anmatika/poloniex-api-cli
 
 ## 1. Trading API
