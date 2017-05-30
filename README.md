@@ -49,6 +49,16 @@ tradingApi.returnTradeHistory({
   .catch(err => reject(err))
 
 ````
+#### return all trade history
+
+````
+tradingApi.returnTradeHistory({
+  currencyPair: 'all',
+  start: new Date('1970-01-01 00:00:00').getTime() / 1000
+}).then(msg => resolve(JSON.parse(msg.body)))
+  .catch(err => reject(err))
+````
+
 ## 2. StreamAPI
 ### init
 
