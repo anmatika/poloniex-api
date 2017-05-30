@@ -7,6 +7,12 @@ https://github.com/anmatika/poloniex-api-cli
 
 ## 1. Trading API
 
+### install
+````
+npm i poloniex-api --save
+
+````
+
 ### methods currently supported
 * buy
 * sell
