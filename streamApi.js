@@ -1,19 +1,22 @@
 const autobahn = require('autobahn');
 const wsuri = 'wss://api.poloniex.com';
 
-const create = ({ subscriptionName, currency }, callback) => {
+const create = ({ subscriptionName, currencyPair, debug = false }, callback) => {
   const connection = new autobahn.Connection({
     url: wsuri,
     realm: 'realm1'
   });
 
+  debug && console.log('listening: ', subscriptionName, currencyPair || '')
+
   connection.onopen = (session) => {
     function marketEvent(args, kwargs) {
       console.log(args);
     }
+
     function tickerEvent(args, kwargs) {
       const [
-          currencyPair,
+          currency,
           lastPrice,
           lowestAsk,
           highestBid,
@@ -30,7 +33,7 @@ const create = ({ subscriptionName, currency }, callback) => {
       }
 
       callback({
-        currencyPair,
+        currencyPair: currency,
         lastPrice,
         lowestAsk,
         highestBid,
@@ -42,6 +45,7 @@ const create = ({ subscriptionName, currency }, callback) => {
         low24
       });
     }
+
     function trollboxEvent(args, kwargs) {
       console.log(args);
     }
@@ -51,7 +55,7 @@ const create = ({ subscriptionName, currency }, callback) => {
       session.subscribe('ticker', tickerEvent);
       break;
     case 'market':
-      session.subscribe('BTC_XMR', marketEvent);
+      session.subscribe(currencyPair, marketEvent);
       break;
     case 'trollbox':
       session.subscribe('trollbox', trollboxEvent);
