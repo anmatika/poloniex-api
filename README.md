@@ -1,5 +1,9 @@
 # Poloniex API
 
+node api for consuming poloniex api.
+
+node cli can be found here 
+https://github.com/anmatika/poloniex-api-cli
 
 ## 1. Trading API
 
@@ -24,6 +28,11 @@ const tradingApi = TradingApi.create(YOUR_POLONIEX_API_KEY, YOUR_POLONIEX_SECRET
 ````
 const tradingApi = TradingApi.create(YOUR_POLONIEX_API_KEY, YOUR_POLONIEX_SECRET_KEY, true);
 ````
+
+## examples
+
+below some examples how to consume, please see the code or the client above for more examples
+
 ### buy
 ````
 tradingApi.buy({
