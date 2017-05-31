@@ -1,8 +1,8 @@
-const TradingApi = require('../index').tradingApi;
+const PublicApi = require('../index').publicApi;
 
-const tradingApi = TradingApi.create('', '', true);
+const publicApi = PublicApi.create('', '', true);
 
-tradingApi.returnTicker()
+publicApi.returnTicker()
 .then((msg) => {
     console.log(msg);
 })
