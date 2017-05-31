@@ -21,8 +21,7 @@ npm i poloniex-api
 * returnTradeHistory
 * cancelOrder
 * returnOpenOrders
-* returnTicker
-* returnChartData
+
 
 ### init
 ````
@@ -75,17 +74,17 @@ tradingApi.returnTradeHistory({
   .catch(err => reject(err))
 ````
 
-## 2. StreamAPI
+## 2. Push API
 ### init
 
 ````
-const streamApi = require('poloniex-api').streamApi;
+const pushApi = require('poloniex-api').pushApi;
 ````
 
 ### Subscribe to ticker events
 ````
 
-  streamApi.create({ subscriptionName: 'ticker', currencyPair: 'BTC_ETH' }, (obj) => {
+  pushApi.create({ subscriptionName: 'ticker', currencyPair: 'BTC_ETH' }, (obj) => {
     console.log(obj)
   });
 
@@ -93,7 +92,7 @@ const streamApi = require('poloniex-api').streamApi;
 
 ### Subscribe to market events
 ````
-  streamApi.create({ subscriptionName: 'market', currencyPair: 'BTC_ETH' }, (obj) => {
+  pushApi.create({ subscriptionName: 'market', currencyPair: 'BTC_ETH' }, (obj) => {
     console.log(obj)
   });
 
@@ -101,7 +100,27 @@ const streamApi = require('poloniex-api').streamApi;
 
 ### Subscribe to trollbox events
 ````
-  streamApi.create({ subscriptionName: 'trollbox' }, (obj) => {
+  pushApi.create({ subscriptionName: 'trollbox' }, (obj) => {
     console.log(obj)
   });
+````
+
+## Public API
+### init
+
+````
+const publicApi = require('poloniex-api').publicApi.create();
+
+````
+### methods currently supported
+* returnTicker
+* returnChartData
+
+#### returnTicker
+````
+publicApi.returnTicker()
+.then((msg) => {
+    console.log(msg);
+})
+.catch(err => console.log(err));
 ````

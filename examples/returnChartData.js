@@ -1,8 +1,8 @@
-const TradingApi = require('../index').tradingApi;
+const PublicApi = require('../index').publicApi;
 
-const tradingApi = TradingApi.create('', '', true);
+const publicApi = PublicApi.create('', '', true);
 
-tradingApi.returnChartData({
+publicApi.returnChartData({
     currencyPair: 'BTC_ETH',
     start: 1405699200,
     end: 9999999999,
