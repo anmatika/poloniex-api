@@ -11,11 +11,11 @@ if(isBrowser) {
 const ApiHelper = require('./apiHelper');
 
 const create = (apiKey, secret, debug = false) => {
-
   const PRIVATE_API_URL = 'https://poloniex.com/tradingApi';
-  const apiHelper = ApiHelper.create(apiKey, secret);
 
   function makeRequest(command, opts) {
+    const apiHelper = ApiHelper.create(apiKey, secret);
+
     const promise = new Promise((resolve, reject) => {
       request.post(apiHelper.createOptions({
         url: PRIVATE_API_URL,
