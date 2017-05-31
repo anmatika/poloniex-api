@@ -25,7 +25,8 @@ const create = (apiKey, secret, debug = false) => {
     amount,
     sell,
     cancelOrder,
-    orderNumber
+    orderNumber,
+    period
   }) => {
     const query = {};
 
@@ -56,6 +57,9 @@ const create = (apiKey, secret, debug = false) => {
     }
     if (orderNumber) {
       query.orderNumber = orderNumber;
+    }
+    if (period) {
+      query.period = period;
     }
     query.nonce = nonce();
 
@@ -110,9 +114,13 @@ const create = (apiKey, secret, debug = false) => {
     return promise;
   }
 
-  function makeRequestPublic(command) {
+  function makeRequestPublic(command, opts) {
+    const querystring = createQueryString(command, opts);
+    const req = `${PUBLIC_API_URL}?${querystring}`;
+    debug && console.log('requesting with options', req);
+
     return new Promise((resolve, reject) => {
-      request.get(`${PUBLIC_API_URL}?command=${command}`, (err, res, body) => {
+      request.get(req, (err, res, body) => {
         if (err) {
           reject(err);
           return;
@@ -130,7 +138,8 @@ const create = (apiKey, secret, debug = false) => {
     returnTradeHistory: ({ currencyPair, start, end }) => makeRequest('returnTradeHistory', { currencyPair, start, end }),
     cancelOrder: ({ orderNumber }) => makeRequest('cancelOrder', { orderNumber }),
     returnOpenOrders: ({ currencyPair }) => makeRequest('returnOpenOrders', { currencyPair }),
-    returnTicker: () => makeRequestPublic('returnTicker')
+    returnTicker: () => makeRequestPublic('returnTicker', {}),
+    returnChartData: ({ currencyPair, start, end, period }) => makeRequestPublic('returnChartData', { currencyPair, start, end, period })
   }
 }
 

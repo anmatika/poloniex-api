@@ -9,7 +9,7 @@ https://github.com/anmatika/poloniex-api-cli
 
 ### install
 ````
-npm i poloniex-api --save
+npm i poloniex-api
 
 ````
 

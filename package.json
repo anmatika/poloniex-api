@@ -1,6 +1,6 @@
 {
   "name": "poloniex-api",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "poloniex api",
   "main": "index.js",
   "dependencies": {
