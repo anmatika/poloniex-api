@@ -22,6 +22,7 @@ npm i poloniex-api
 * cancelOrder
 * returnOpenOrders
 * returnTicker
+* returnChartData
 
 ### init
 ````
