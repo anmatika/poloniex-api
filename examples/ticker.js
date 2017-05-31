@@ -1,5 +1,4 @@
-const streamApi = require('../index').streamApi;
-
+const streamApi = require('../index').pushApi;
 streamApi.create({ 
   subscriptionName: 'ticker', 
   currencyPair: 'BTC_ETH', 

@@ -1,4 +1,4 @@
-const streamApi = require('../index').streamApi;
+const streamApi = require('../index').pushApi;
 
 streamApi.create({ 
   subscriptionName: 'market', 
