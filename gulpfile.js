@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const mocha = require('gulp-mocha');
+const gutil = require('gulp-util');
 
 gulp.task('watch-mocha', () => {
     // run in oneshot

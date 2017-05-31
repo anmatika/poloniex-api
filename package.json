@@ -16,6 +16,7 @@
     "co-mocha": "^1.2.0",
     "gulp": "^3.9.1",
     "gulp-mocha": "^4.3.1",
+    "gulp-util": "^3.0.8",
     "sinon": "^2.2.0"
   },
   "scripts": {
