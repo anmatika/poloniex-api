@@ -4,10 +4,10 @@ const wsuri = 'wss://api.poloniex.com';
 const create = ({ subscriptionName, currencyPair, debug = false }, callback) => {
   const connection = new autobahn.Connection({
     url: wsuri,
-    realm: 'realm1'
+    realm: 'realm1',
   });
 
-  debug && console.log('listening: ', subscriptionName, currencyPair || '')
+  debug && console.log('listening: ', subscriptionName, currencyPair || '');
 
   connection.onopen = (session) => {
     function marketEvent(args, kwargs) {
@@ -25,7 +25,7 @@ const create = ({ subscriptionName, currencyPair, debug = false }, callback) => 
           quoteVolume,
           isFrozen,
           high24,
-          low24
+          low24,
       ] = args;
 
       if (currencyPair !== currency) {
@@ -42,7 +42,7 @@ const create = ({ subscriptionName, currencyPair, debug = false }, callback) => 
         quoteVolume,
         isFrozen,
         high24,
-        low24
+        low24,
       });
     }
 
@@ -51,28 +51,28 @@ const create = ({ subscriptionName, currencyPair, debug = false }, callback) => 
     }
 
     switch (subscriptionName) {
-    case 'ticker':
-      session.subscribe('ticker', tickerEvent);
-      break;
-    case 'market':
-      session.subscribe(currencyPair, marketEvent);
-      break;
-    case 'trollbox':
-      session.subscribe('trollbox', trollboxEvent);
-      break;
+      case 'ticker':
+        session.subscribe('ticker', tickerEvent);
+        break;
+      case 'market':
+        session.subscribe(currencyPair, marketEvent);
+        break;
+      case 'trollbox':
+        session.subscribe('trollbox', trollboxEvent);
+        break;
     }
-  }
+  };
 
   connection.onclose = () => {
     console.log('Websocket connection closed');
-  }
+  };
 
   connection.open();
 
   return {
     close: () => connection.close('user', 'connection closed.'),
-    session: connection.session
-  }
-}
+    session: connection.session,
+  };
+};
 
 module.exports.create = create;

@@ -11,7 +11,6 @@ const target = require('../tradingApi.js').create('', '');
 chai.should();
 
 describe('makeRequest', () => {
-
   const stubYield = { body: JSON.stringify({ foo: 'bar' }) };
   const postStub = sinon.stub(request, 'post').yields(null, null, stubYield);
 
@@ -20,6 +19,5 @@ describe('makeRequest', () => {
     target.returnBalances().should.eventually.deep.equal(expected);
     // sinon.assert.calledWith(postStub, sinon.match.has('request'));
     expect(request.post).to.have.been.calledOnce;
-
   });
-})
+});

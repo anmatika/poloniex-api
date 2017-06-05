@@ -15,8 +15,8 @@ describe('makeRequestPublic', () => {
   const getStub = sinon.stub(request, 'get').yields(null, null, stubYield);
 
   it('should call request get with returnTicker', () => {
-      const expected = { body: JSON.stringify({ foo: 'bar' }) };
-      target.returnTicker().should.eventually.deep.equal(expected);
-      expect(request.get).to.have.been.calledOnce;
-  } )
+    const expected = { body: JSON.stringify({ foo: 'bar' }) };
+    target.returnTicker().should.eventually.deep.equal(expected);
+    expect(request.get).to.have.been.calledOnce;
+  });
 });
