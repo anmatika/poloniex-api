@@ -21,6 +21,8 @@ npm i poloniex-api
 * returnTradeHistory
 * cancelOrder
 * returnOpenOrders
+* generateNewAddress
+* returnDepositAddresses
 
 
 ### init
@@ -37,7 +39,7 @@ const tradingApi = TradingApi.create(YOUR_POLONIEX_API_KEY, YOUR_POLONIEX_SECRET
 
 ## examples
 
-below some examples how to consume, please see the code or the client above for more examples
+below some examples how to consume, please see the examples folder for more examples
 
 ### buy
 ````

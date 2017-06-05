@@ -31,6 +31,8 @@ const create = (apiKey, secret, debug = false) => {
     returnTradeHistory: ({ currencyPair, start, end }) => makeRequest('returnTradeHistory', { currencyPair, start, end }),
     cancelOrder: ({ orderNumber }) => makeRequest('cancelOrder', { orderNumber }),
     returnOpenOrders: ({ currencyPair }) => makeRequest('returnOpenOrders', { currencyPair }),
+    returnDepositAddresses: () => makeRequest('returnDepositAddresses', {}),
+    generateNewAddress: ({ currency }) => makeRequest('generateNewAddress', { currency }),
   };
 };
 

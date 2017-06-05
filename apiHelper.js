@@ -17,6 +17,7 @@ module.exports.create = (apiKey, secret, debug = false) => {
     fillOrKill,
     immediateOrCancel,
     postOnly,
+    currency,
   }) {
     const query = {};
 
@@ -59,6 +60,9 @@ module.exports.create = (apiKey, secret, debug = false) => {
     }
     if (postOnly) {
       query.postOnly = postOnly;
+    }
+    if (currency) {
+      query.currency = currency;
     }
     query.nonce = nonce();
 
