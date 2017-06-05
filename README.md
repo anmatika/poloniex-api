@@ -48,6 +48,7 @@ tradingApi.buy({
   }).then(msg => console.log(msg.body))
     .catch(err => console.log(err))
 ````
+You can also use optional parameters fillOrKill, immediateOrCancel and postOnly 
 
 ### returnBalances
 ````
