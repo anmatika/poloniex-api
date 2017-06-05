@@ -51,8 +51,11 @@ tradingApi.buy({
 
 ### returnBalances
 ````
-a.returnBalances().then((r)=> { console.log(r) }, (err) => { console.log('err', err)});
-api.returnBalances.then(res => console.log(res));
+tradingApi.returnBalances()
+.then((msg) => {
+    console.log(msg);
+})
+.catch(err => console.log(err));
 ````
 
 ### returnTradeHistory
