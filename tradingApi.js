@@ -16,9 +16,9 @@ const create = (apiKey, secret, debug = false) => {
           reject(err);
           return;
         }
-        debug && console.log('makeRequest resolve', res)
+        debug && console.log('makeRequest resolve', res);
         resolve(res);
-      })
+      });
     });
     return promise;
   }
@@ -30,8 +30,8 @@ const create = (apiKey, secret, debug = false) => {
     sell: ({ currencyPair, amount, rate }) => makeRequest('sell', { currencyPair, amount, rate }),
     returnTradeHistory: ({ currencyPair, start, end }) => makeRequest('returnTradeHistory', { currencyPair, start, end }),
     cancelOrder: ({ orderNumber }) => makeRequest('cancelOrder', { orderNumber }),
-    returnOpenOrders: ({ currencyPair }) => makeRequest('returnOpenOrders', { currencyPair })
-  }
-}
+    returnOpenOrders: ({ currencyPair }) => makeRequest('returnOpenOrders', { currencyPair }),
+  };
+};
 
 module.exports.create = create;

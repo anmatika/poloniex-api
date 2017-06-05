@@ -4,21 +4,19 @@ const gutil = require('gulp-util');
 
 gulp.task('watch-mocha', () => {
     // run in oneshot
-    gulp.start('mocha');
+  gulp.start('mocha');
     // start watching
-    gulp.watch(['test/**'], ['mocha']);
+  gulp.watch(['test/**'], ['mocha']);
 });
 
-gulp.task('mocha', () => {
-    return gulp.src(['test/*.js'], {
-        read: false
-        })
+gulp.task('mocha', () => gulp.src(['test/*.js'], {
+  read: false,
+})
         .pipe(mocha({
-            reporter: 'list',
-            require: 'co-mocha'
+          reporter: 'list',
+          require: 'co-mocha',
         }))
-        .on('error', gutil.log);
-});
+        .on('error', gutil.log));
 
 
 gulp.task('default', ['watch-mocha']);

@@ -1,10 +1,9 @@
-const nonce   = require('nonce')();
-const crypto  = require('crypto');
+const nonce = require('nonce')();
+const crypto = require('crypto');
 const urlLib = require('url');
 
 module.exports.create = (apiKey, secret, debug = false) => {
-
- function createQuery (command, {
+  function createQuery(command, {
     currencyPair,
     start,
     end,
@@ -17,13 +16,13 @@ module.exports.create = (apiKey, secret, debug = false) => {
     period,
     fillOrKill,
     immediateOrCancel,
-    postOnly
+    postOnly,
   }) {
     const query = {};
 
     query.command = command;
     if (currencyPair) {
-      query.currencyPair = currencyPair
+      query.currencyPair = currencyPair;
     }
     if (start) {
       query.start = start;
@@ -66,7 +65,7 @@ module.exports.create = (apiKey, secret, debug = false) => {
     return query;
   }
 
-  function createQueryString (command, opts) {
+  function createQueryString(command, opts) {
     const query = createQuery(command, opts);
 
     const queryString = urlLib.format({ query }).substring(1);
@@ -75,32 +74,33 @@ module.exports.create = (apiKey, secret, debug = false) => {
   }
 
   function createHeader(queryString) {
-      return {
-          Key: apiKey,
+    return {
+      Key: apiKey,
       Sign: crypto.createHmac('sha512', secret).update(queryString).digest('hex'),
       'Content-Type': 'application/x-www-form-urlencoded',
-      'User-Agent': 'request node'
-    }
+      'User-Agent': 'request node',
+    };
   }
 
   function createOptions({ url, queryString, method = 'post' }) {
     const options = {
       url,
       method,
-      body: queryString
-    }
+      body: queryString,
+    };
     if (method === 'post') {
       options.headers = createHeader(queryString);
     }
 
-    debug && console.log('requesting with options: ', options)
+    debug && console.log('requesting with options: ', options);
     return options;
   }
 
   return {
-      createQuery: createQuery,
-      createQueryString: createQueryString,
-      createHeader: createHeader,
-      createOptions: createOptions
-  }
+    createQuery,
+    createQueryString,
+    createHeader,
+    createOptions,
+  };
 }
+;

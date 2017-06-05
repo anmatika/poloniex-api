@@ -1,8 +1,7 @@
-const  request = require('request');
+const request = require('request');
 const ApiHelper = require('./apiHelper');
 
 const create = (debug = false) => {
-
   const PUBLIC_API_URL = 'https://poloniex.com/public';
   const apiHelper = ApiHelper.create('', '');
 
@@ -18,14 +17,14 @@ const create = (debug = false) => {
           return;
         }
         resolve(res);
-      })
-    })
+      });
+    });
   }
 
   return {
     returnTicker: () => makeRequest('returnTicker', {}),
-    returnChartData: ({ currencyPair, start, end, period }) => makeRequest('returnChartData', { currencyPair, start, end, period })
-  }
-}
+    returnChartData: ({ currencyPair, start, end, period }) => makeRequest('returnChartData', { currencyPair, start, end, period }),
+  };
+};
 
 module.exports.create = create;
