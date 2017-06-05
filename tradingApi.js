@@ -5,7 +5,7 @@ const create = (apiKey, secret, debug = false) => {
   const PRIVATE_API_URL = 'https://poloniex.com/tradingApi';
 
   function makeRequest(command, opts) {
-    const apiHelper = ApiHelper.create(apiKey, secret);
+    const apiHelper = ApiHelper.create(apiKey, secret, debug);
 
     const promise = new Promise((resolve, reject) => {
       request.post(apiHelper.createOptions({
@@ -26,7 +26,7 @@ const create = (apiKey, secret, debug = false) => {
   return {
     returnBalances: () => makeRequest('returnBalances', {}),
     returnCompleteBalances: () => makeRequest('returnCompleteBalances', {}),
-    buy: ({ currencyPair, amount, rate }) => makeRequest('buy', { currencyPair, amount, rate }),
+    buy: ({ currencyPair, amount, rate, fillOrKill, immediateOrCancel, postOnly }) => makeRequest('buy', { currencyPair, amount, rate, fillOrKill, immediateOrCancel, postOnly }),
     sell: ({ currencyPair, amount, rate }) => makeRequest('sell', { currencyPair, amount, rate }),
     returnTradeHistory: ({ currencyPair, start, end }) => makeRequest('returnTradeHistory', { currencyPair, start, end }),
     cancelOrder: ({ orderNumber }) => makeRequest('cancelOrder', { orderNumber }),

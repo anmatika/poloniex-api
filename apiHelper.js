@@ -14,7 +14,10 @@ module.exports.create = (apiKey, secret, debug = false) => {
     sell,
     cancelOrder,
     orderNumber,
-    period
+    period,
+    fillOrKill,
+    immediateOrCancel,
+    postOnly
   }) {
     const query = {};
 
@@ -48,6 +51,15 @@ module.exports.create = (apiKey, secret, debug = false) => {
     }
     if (period) {
       query.period = period;
+    }
+    if (immediateOrCancel) {
+      query.immediateOrCancel = immediateOrCancel;
+    }
+    if (fillOrKill) {
+      query.fillOrKill = fillOrKill;
+    }
+    if (postOnly) {
+      query.postOnly = postOnly;
     }
     query.nonce = nonce();
 
