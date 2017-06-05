@@ -4,7 +4,7 @@ const APIKEY = '<Yours here>';
 const SECRET = '<Yours here>';
 const tradingApi = TradingApi.create(APIKEY, SECRET);
 
-tradingApi.returnBalances()
+tradingApi.returnAvailableAccountBalances({})
 .then((msg) => {
   console.log(msg.body);
 })

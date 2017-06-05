@@ -18,6 +18,7 @@ module.exports.create = (apiKey, secret, debug = false) => {
     immediateOrCancel,
     postOnly,
     currency,
+    account,
   }) {
     const query = {};
 
@@ -63,6 +64,9 @@ module.exports.create = (apiKey, secret, debug = false) => {
     }
     if (currency) {
       query.currency = currency;
+    }
+    if (account) {
+      query.account = account;
     }
     query.nonce = nonce();
 

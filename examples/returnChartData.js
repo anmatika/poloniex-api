@@ -10,6 +10,6 @@ publicApi.returnChartData({
 
 })
 .then((msg) => {
-  console.log(msg);
+  console.log(msg.body);
 })
 .catch(err => console.log(err));

@@ -17,6 +17,7 @@ npm i poloniex-api
 * buy
 * sell
 * returnBalances
+* returnAvailableAccountBalances
 * returnCompleteBalances
 * returnTradeHistory
 * cancelOrder

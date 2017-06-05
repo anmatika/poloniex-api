@@ -6,6 +6,6 @@ const tradingApi = TradingApi.create(APIKEY, SECRET);
 
 tradingApi.returnCompleteBalances()
 .then((msg) => {
-  console.log(msg);
+  console.log(msg.body);
 })
 .catch(err => console.log(err));

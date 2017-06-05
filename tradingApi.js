@@ -33,6 +33,9 @@ const create = (apiKey, secret, debug = false) => {
     returnOpenOrders: ({ currencyPair }) => makeRequest('returnOpenOrders', { currencyPair }),
     returnDepositAddresses: () => makeRequest('returnDepositAddresses', {}),
     generateNewAddress: ({ currency }) => makeRequest('generateNewAddress', { currency }),
+    returnAvailableAccountBalances: ({ account }) => makeRequest('returnAvailableAccountBalances', { account }),
+
+
   };
 };
 
