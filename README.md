@@ -5,6 +5,10 @@ a node module for consuming poloniex api https://poloniex.com/support/api/.
 example node client for consuming this can be found here:
 https://github.com/anmatika/poloniex-api-cli
 
+
+example web client for consuming this can be found here:
+https://github.com/anmatika/poloniex-api-gui
+
 ## 1. Trading API
 
 ### install
@@ -24,7 +28,6 @@ npm i poloniex-api
 * returnOpenOrders
 * generateNewAddress
 * returnDepositAddresses
-
 
 ### init
 ````
