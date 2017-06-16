@@ -28,7 +28,7 @@ const create = ({ subscriptionName, currencyPair, debug = false }, callback) => 
           low24,
       ] = args;
 
-      if (currencyPair !== currency) {
+      if (currencyPair !== 'all' && currencyPair !== currency) {
         return;
       }
 
